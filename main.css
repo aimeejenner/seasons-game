@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Source+Sans+Pro:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+body {
+  background-size: cover;
+  background-image: url("images/spring.jpg");
+  height: 100vh;
+  width: auto;
+}
+
+.spring {
+  background-image: url("images/spring.jpg");
+}
+
+.summer {
+  background-image: url("images/summer.png");
+}
+
+.autumn {
+  background-image: url("images/autumn.jpg");
+}
+
+.winter {
+  background-image: url("images/winter.png");
+}
