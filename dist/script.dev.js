@@ -1,5 +1,11 @@
 "use strict";
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 // VARIABLES
 var springWords = ["spring", "blossom", "daffodil", "lamb", "shower", "rainbow", "Easter egg", "umbrella", "breeze", "duckling"];
 var summerWords = ["summer", "holiday", "sandcastle", "sunshine", "barbecue", "seaside", "cricket", "picnic", "ice cream", "sunglasses"];
@@ -19,7 +25,8 @@ var targetContainer = document.querySelector(".target-container");
 targetContainer.innerHTML = targetWord;
 var inputContainer = document.querySelector(".input-container");
 inputContainer.value = input;
-var startButton = document.querySelector(".start"); // EVENT LISTENERS
+var startButton = document.querySelector(".start");
+var objectsContainer = document.querySelector(".objects-container"); // EVENT LISTENERS
 
 startButton.addEventListener("click", function (event) {
   event.preventDefault();
@@ -35,4 +42,54 @@ inputContainer.addEventListener("input", function (event) {
   if (inPlay == true) {
     checkInput();
   }
-});
+}); //CLASSES
+// create different types of falling objects
+
+var FallingObject =
+/*#__PURE__*/
+function () {
+  function FallingObject(imgHTML) {
+    _classCallCheck(this, FallingObject);
+
+    this.imgHTML = imgHTML;
+  }
+
+  _createClass(FallingObject, [{
+    key: "getObjectHTML",
+    value: function getObjectHTML() {
+      var objectHTML = "\n        ".concat(this.imgHTML, "\n      ");
+      return objectHTML;
+    }
+  }]);
+
+  return FallingObject;
+}();
+
+var snowflake = new FallingObject('<i style="color:white;" class="fas fa-snowflake"></i>');
+var leaf = new FallingObject("<i style=\"color:brown;\" class=\"fas fa-leaf\"></i>");
+var raindrop = new FallingObject("<i style=\"color:blue;\" class=\"fas fa-tint\"></i>");
+var blossom = new FallingObject("<i style=\"color:hotpink;\" class=\"fas fa-spa\"></i>"); // FUNCTIONS
+
+var makeBlossoms = function makeBlossoms() {
+  for (var i = 0; i < 100; i++) {
+    objectsContainer.innerHTML += blossom.getObjectHTML();
+  }
+};
+
+var makeRaindrops = function makeRaindrops() {
+  for (var i = 0; i < 100; i++) {
+    objectsContainer.innerHTML += raindrop.getObjectHTML();
+  }
+};
+
+var makeLeaves = function makeLeaves() {
+  for (var i = 0; i < 100; i++) {
+    objectsContainer.innerHTML += leaf.getObjectHTML();
+  }
+};
+
+var makeSnowflakes = function makeSnowflakes() {
+  for (var i = 0; i < 100; i++) {
+    objectsContainer.innerHTML += snowflake.getObjectHTML();
+  }
+};

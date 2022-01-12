@@ -1,3 +1,4 @@
+
 // VARIABLES
 
 const springWords = ["spring", "blossom", "daffodil", "lamb", "shower", "rainbow", "Easter egg", "umbrella", "breeze", "duckling"];
@@ -23,6 +24,7 @@ const inputContainer = document.querySelector(".input-container");
 inputContainer.value = input;
 
 const startButton = document.querySelector(".start");
+const objectsContainer = document.querySelector(".objects-container");
 
 
 // EVENT LISTENERS
@@ -45,3 +47,63 @@ inputContainer.addEventListener("input", (event) => {
         checkInput();
     }
 })
+
+//CLASSES
+// create different types of falling objects
+
+class FallingObject {
+    constructor(imgHTML) {
+        this.imgHTML = imgHTML;
+    }
+
+    getObjectHTML() {
+        const objectHTML = `
+        ${this.imgHTML}
+      `
+      return objectHTML;
+        }
+    }
+
+
+const snowflake = new FallingObject(
+  '<i style="color:white;" class="fas fa-snowflake"></i>'
+);
+
+const leaf = new FallingObject(
+  `<i style="color:brown;" class="fas fa-leaf"></i>`
+);
+
+const raindrop = new FallingObject(
+    `<i style="color:blue;" class="fas fa-tint"></i>`
+);
+
+const blossom = new FallingObject(
+  `<i style="color:hotpink;" class="fas fa-spa"></i>`
+)
+
+
+// FUNCTIONS
+
+const makeBlossoms = () => {
+    for (let i = 0; i < 100; i++) {
+        objectsContainer.innerHTML += blossom.getObjectHTML();
+      }
+}
+
+const makeRaindrops = () => {
+    for (let i = 0; i < 100; i++) {
+        objectsContainer.innerHTML += raindrop.getObjectHTML();
+      }
+}
+
+const makeLeaves = () => {
+    for (let i = 0; i < 100; i++) {
+        objectsContainer.innerHTML += leaf.getObjectHTML();
+      }
+}
+
+const makeSnowflakes = () => {
+    for (let i = 0; i < 100; i++) {
+        objectsContainer.innerHTML += snowflake.getObjectHTML();
+      }
+}
