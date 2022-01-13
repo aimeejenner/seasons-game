@@ -133,7 +133,7 @@ const getLevelSettings = () => {
   objectsContainer.style.bottom = '600px';
 }
 
-// Select a random word then remove it from the array
+// Select a random word from the wordsInPlay array and display as target word
 // When the array is empty move to the next level
 const getTargetWord = () => {
   targetWord = wordsInPlay[Math.floor(Math.random() * wordsInPlay.length)];
@@ -151,3 +151,39 @@ const getTargetWord = () => {
       }
   }
 }
+
+// Check user input includes the target word
+// If so remove the word from the wordsInPlay array
+const checkInput = () => {
+  input = inputContainer.value;
+  if (input.includes(targetWord)) {
+      wordCorrect = true;
+      const index = wordsInPlay.indexOf(targetWord);
+      wordsInPlay.splice(index, 1);
+      points += 1;
+      getTargetWord();
+      inputContainer.value = "";
+  }
+}
+
+// Convert object container bottom position to a number and decrement by 1
+// Convert number back to string and set as bottom position so objects move down
+// If user inputs correct word, move objects 50px up
+const moveObjects = () => {
+  let bottom = objectsContainer.style.bottom.replace("px", "");
+  bottom = Number(bottom);
+  bottom -= 1;
+  objectsContainer.style.bottom = `${bottom}px`;
+  if (wordCorrect == true) {
+      objectsContainer.style.bottom = `${bottom + 50}px`;
+      wordCorrect = false;
+  }
+  if (bottom == 0) {
+      gameOver();
+  }
+}
+
+// Repeat the moveObjects function every 30ms so objects appear to be falling
+// Clear interval to stop this running when the game is over or not yet started
+let dropObjects = setInterval(moveObjects, 30);
+clearInterval(dropObjects);
