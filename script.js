@@ -61,6 +61,12 @@ class FallingObject {
       `
       return objectHTML;
         }
+
+    makeObjects() {
+      for (let i = 0; i < 100; i++) {
+          objectsContainer.innerHTML += this.getObjectHTML();
+        }
+      }
     }
 
 
@@ -83,30 +89,6 @@ const blossom = new FallingObject(
 
 // FUNCTIONS
 
-const makeBlossoms = () => {
-    for (let i = 0; i < 100; i++) {
-        objectsContainer.innerHTML += blossom.getObjectHTML();
-      }
-}
-
-const makeRaindrops = () => {
-    for (let i = 0; i < 100; i++) {
-        objectsContainer.innerHTML += raindrop.getObjectHTML();
-      }
-}
-
-const makeLeaves = () => {
-    for (let i = 0; i < 100; i++) {
-        objectsContainer.innerHTML += leaf.getObjectHTML();
-      }
-}
-
-const makeSnowflakes = () => {
-    for (let i = 0; i < 100; i++) {
-        objectsContainer.innerHTML += snowflake.getObjectHTML();
-      }
-}
-
 const startGame = () => {
   inPlay = true;
   points = 0;
@@ -121,27 +103,27 @@ const getLevelSettings = () => {
   switch (level) {
       case 1:
           body.className = "spring";
-          makeBlossoms();
+          blossom.makeObjects();
           dropObjects = setInterval(moveObjects, 30);
           wordsInPlay = springWords.map((word) => word);
           break;
       case 2:
           body.className = "summer";
-          makeRaindrops();
+          raindrop.makeObjects();
           clearInterval(dropObjects);
           dropObjects = setInterval(moveObjects, 25);
           wordsInPlay = summerWords.map((word) => word);
           break;
       case 3:
           body.className = "autumn";
-          makeLeaves();
+          leaf.makeObjects();
           clearInterval(dropObjects);
           dropObjects = setInterval(moveObjects, 22);
           wordsInPlay = autumnWords.map((word) => word);
           break;
       case 4:
           body.className = "winter";
-          makeSnowflakes();
+          snowflake.makeObjects();
           clearInterval(dropObjects);
           dropObjects = setInterval(moveObjects, 20);
           wordsInPlay = winterWords.map((word) => word);

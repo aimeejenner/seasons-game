@@ -59,6 +59,13 @@ function () {
       var objectHTML = "\n        ".concat(this.imgHTML, "\n      ");
       return objectHTML;
     }
+  }, {
+    key: "makeObjects",
+    value: function makeObjects() {
+      for (var i = 0; i < 100; i++) {
+        objectsContainer.innerHTML += this.getObjectHTML();
+      }
+    }
   }]);
 
   return FallingObject;
@@ -68,30 +75,6 @@ var snowflake = new FallingObject('<i style="color:white;" class="fas fa-snowfla
 var leaf = new FallingObject("<i style=\"color:brown;\" class=\"fas fa-leaf\"></i>");
 var raindrop = new FallingObject("<i style=\"color:blue;\" class=\"fas fa-tint\"></i>");
 var blossom = new FallingObject("<i style=\"color:hotpink;\" class=\"fas fa-spa\"></i>"); // FUNCTIONS
-
-var makeBlossoms = function makeBlossoms() {
-  for (var i = 0; i < 100; i++) {
-    objectsContainer.innerHTML += blossom.getObjectHTML();
-  }
-};
-
-var makeRaindrops = function makeRaindrops() {
-  for (var i = 0; i < 100; i++) {
-    objectsContainer.innerHTML += raindrop.getObjectHTML();
-  }
-};
-
-var makeLeaves = function makeLeaves() {
-  for (var i = 0; i < 100; i++) {
-    objectsContainer.innerHTML += leaf.getObjectHTML();
-  }
-};
-
-var makeSnowflakes = function makeSnowflakes() {
-  for (var i = 0; i < 100; i++) {
-    objectsContainer.innerHTML += snowflake.getObjectHTML();
-  }
-};
 
 var startGame = function startGame() {
   inPlay = true;
@@ -107,7 +90,7 @@ var getLevelSettings = function getLevelSettings() {
   switch (level) {
     case 1:
       body.className = "spring";
-      makeBlossoms();
+      blossom.makeObjects();
       dropObjects = setInterval(moveObjects, 30);
       wordsInPlay = springWords.map(function (word) {
         return word;
@@ -116,7 +99,7 @@ var getLevelSettings = function getLevelSettings() {
 
     case 2:
       body.className = "summer";
-      makeRaindrops();
+      raindrop.makeObjects();
       clearInterval(dropObjects);
       dropObjects = setInterval(moveObjects, 25);
       wordsInPlay = summerWords.map(function (word) {
@@ -126,7 +109,7 @@ var getLevelSettings = function getLevelSettings() {
 
     case 3:
       body.className = "autumn";
-      makeLeaves();
+      leaf.makeObjects();
       clearInterval(dropObjects);
       dropObjects = setInterval(moveObjects, 22);
       wordsInPlay = autumnWords.map(function (word) {
@@ -136,7 +119,7 @@ var getLevelSettings = function getLevelSettings() {
 
     case 4:
       body.className = "winter";
-      makeSnowflakes();
+      snowflake.makeObjects();
       clearInterval(dropObjects);
       dropObjects = setInterval(moveObjects, 20);
       wordsInPlay = winterWords.map(function (word) {
