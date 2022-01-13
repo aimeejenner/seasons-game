@@ -12,7 +12,6 @@ let wordCorrect = false;
 let points = 0;
 let level = 1;
 let inPlay = false;
-let interval = 30;
 
 const body = document.querySelector("body");
 const introContainer = document.querySelector(".intro");
@@ -106,4 +105,46 @@ const makeSnowflakes = () => {
     for (let i = 0; i < 100; i++) {
         objectsContainer.innerHTML += snowflake.getObjectHTML();
       }
+}
+
+const startGame = () => {
+  inPlay = true;
+  points = 0;
+  objectsContainer.style.display = "grid";
+  targetContainer.style.display = "inline-block";
+  inputContainer.style.display = "inline-block";
+  introContainer.style.display = "None";
+  startButton.style.display = "None";
+}
+
+const getLevelSettings = () => {
+  switch (level) {
+      case 1:
+          body.className = "spring";
+          makeBlossoms();
+          dropObjects = setInterval(moveObjects, 30);
+          wordsInPlay = springWords.map((word) => word);
+          break;
+      case 2:
+          body.className = "summer";
+          makeRaindrops();
+          clearInterval(dropObjects);
+          dropObjects = setInterval(moveObjects, 25);
+          wordsInPlay = summerWords.map((word) => word);
+          break;
+      case 3:
+          body.className = "autumn";
+          makeLeaves();
+          clearInterval(dropObjects);
+          dropObjects = setInterval(moveObjects, 22);
+          wordsInPlay = autumnWords.map((word) => word);
+          break;
+      case 4:
+          body.className = "winter";
+          makeSnowflakes();
+          clearInterval(dropObjects);
+          dropObjects = setInterval(moveObjects, 20);
+          wordsInPlay = winterWords.map((word) => word);
+  }
+  objectsContainer.style.bottom = '600px';
 }

@@ -18,7 +18,6 @@ var wordCorrect = false;
 var points = 0;
 var level = 1;
 var inPlay = false;
-var interval = 30;
 var body = document.querySelector("body");
 var introContainer = document.querySelector(".intro");
 var targetContainer = document.querySelector(".target-container");
@@ -92,4 +91,58 @@ var makeSnowflakes = function makeSnowflakes() {
   for (var i = 0; i < 100; i++) {
     objectsContainer.innerHTML += snowflake.getObjectHTML();
   }
+};
+
+var startGame = function startGame() {
+  inPlay = true;
+  points = 0;
+  objectsContainer.style.display = "grid";
+  targetContainer.style.display = "inline-block";
+  inputContainer.style.display = "inline-block";
+  introContainer.style.display = "None";
+  startButton.style.display = "None";
+};
+
+var getLevelSettings = function getLevelSettings() {
+  switch (level) {
+    case 1:
+      body.className = "spring";
+      makeBlossoms();
+      dropObjects = setInterval(moveObjects, 30);
+      wordsInPlay = springWords.map(function (word) {
+        return word;
+      });
+      break;
+
+    case 2:
+      body.className = "summer";
+      makeRaindrops();
+      clearInterval(dropObjects);
+      dropObjects = setInterval(moveObjects, 25);
+      wordsInPlay = summerWords.map(function (word) {
+        return word;
+      });
+      break;
+
+    case 3:
+      body.className = "autumn";
+      makeLeaves();
+      clearInterval(dropObjects);
+      dropObjects = setInterval(moveObjects, 22);
+      wordsInPlay = autumnWords.map(function (word) {
+        return word;
+      });
+      break;
+
+    case 4:
+      body.className = "winter";
+      makeSnowflakes();
+      clearInterval(dropObjects);
+      dropObjects = setInterval(moveObjects, 20);
+      wordsInPlay = winterWords.map(function (word) {
+        return word;
+      });
+  }
+
+  objectsContainer.style.bottom = '600px';
 };
