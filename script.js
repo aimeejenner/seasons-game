@@ -187,3 +187,18 @@ const moveObjects = () => {
 // Clear interval to stop this running when the game is over or not yet started
 let dropObjects = setInterval(moveObjects, 30);
 clearInterval(dropObjects);
+
+
+const gameOver = () => {
+  introContainer.style.color = "#000000";
+  if (points == 1) {
+      introContainer.innerHTML = "Game over. You scored 1 point.";
+  } else if (points < 20) {
+      introContainer.innerHTML = `Game over. You scored ${points} points.`;
+  } else if (points < 40) {
+      introContainer.innerHTML = `Great job! You scored ${points} points.`;
+  } else {
+      introContainer.innerHTML = "Congratulations! You scored the maximum 40 points!";
+  }
+  resetGame();
+}

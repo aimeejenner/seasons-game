@@ -191,3 +191,19 @@ var moveObjects = function moveObjects() {
 
 var dropObjects = setInterval(moveObjects, 30);
 clearInterval(dropObjects);
+
+var gameOver = function gameOver() {
+  introContainer.style.color = "#000000";
+
+  if (points == 1) {
+    introContainer.innerHTML = "Game over. You scored 1 point.";
+  } else if (points < 20) {
+    introContainer.innerHTML = "Game over. You scored ".concat(points, " points.");
+  } else if (points < 40) {
+    introContainer.innerHTML = "Great job! You scored ".concat(points, " points.");
+  } else {
+    introContainer.innerHTML = "Congratulations! You scored the maximum 40 points!";
+  }
+
+  resetGame();
+};
