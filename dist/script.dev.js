@@ -71,10 +71,10 @@ function () {
   return FallingObject;
 }();
 
-var snowflake = new FallingObject('<i style="color:white;" class="fas fa-snowflake"></i>');
-var leaf = new FallingObject("<i style=\"color:brown;\" class=\"fas fa-leaf\"></i>");
+var blossom = new FallingObject("<i style=\"color:hotpink;\" class=\"fas fa-spa\"></i>");
 var raindrop = new FallingObject("<i style=\"color:blue;\" class=\"fas fa-tint\"></i>");
-var blossom = new FallingObject("<i style=\"color:hotpink;\" class=\"fas fa-spa\"></i>"); // FUNCTIONS
+var leaf = new FallingObject("<i style=\"color:brown;\" class=\"fas fa-leaf\"></i>");
+var snowflake = new FallingObject('<i style="color:white;" class="fas fa-snowflake"></i>'); // FUNCTIONS
 
 var startGame = function startGame() {
   inPlay = true;
@@ -206,4 +206,17 @@ var gameOver = function gameOver() {
   }
 
   resetGame();
+};
+
+var resetGame = function resetGame() {
+  clearInterval(dropObjects);
+  introContainer.style.display = "inline-block";
+  targetContainer.style.display = "None";
+  inputContainer.style.display = "None";
+  objectsContainer.style.display = "None";
+  startButton.style.display = "inline-block";
+  startButton.innerHTML = "Restart";
+  inputContainer.value = "";
+  objectsContainer.innerHTML = "";
+  level = 1;
 };

@@ -70,21 +70,21 @@ class FallingObject {
     }
 
 
-const snowflake = new FallingObject(
-  '<i style="color:white;" class="fas fa-snowflake"></i>'
+const blossom = new FallingObject(
+  `<i style="color:hotpink;" class="fas fa-spa"></i>`
+);
+
+const raindrop = new FallingObject(
+  `<i style="color:blue;" class="fas fa-tint"></i>`
 );
 
 const leaf = new FallingObject(
   `<i style="color:brown;" class="fas fa-leaf"></i>`
 );
 
-const raindrop = new FallingObject(
-    `<i style="color:blue;" class="fas fa-tint"></i>`
+const snowflake = new FallingObject(
+  '<i style="color:white;" class="fas fa-snowflake"></i>'
 );
-
-const blossom = new FallingObject(
-  `<i style="color:hotpink;" class="fas fa-spa"></i>`
-)
 
 
 // FUNCTIONS
@@ -201,4 +201,17 @@ const gameOver = () => {
       introContainer.innerHTML = "Congratulations! You scored the maximum 40 points!";
   }
   resetGame();
+}
+
+const resetGame = () => {
+  clearInterval(dropObjects);
+  introContainer.style.display = "inline-block";
+  targetContainer.style.display = "None";
+  inputContainer.style.display = "None";
+  objectsContainer.style.display = "None";
+  startButton.style.display = "inline-block";
+  startButton.innerHTML = "Restart";
+  inputContainer.value = "";
+  objectsContainer.innerHTML = "";
+  level = 1;
 }
