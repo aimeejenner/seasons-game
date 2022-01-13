@@ -42,7 +42,7 @@ inputContainer.addEventListener("input", function (event) {
     checkInput();
   }
 }); //CLASSES
-// create different types of falling objects
+// Create different types of falling objects
 
 var FallingObject =
 /*#__PURE__*/
@@ -84,7 +84,9 @@ var startGame = function startGame() {
   inputContainer.style.display = "inline-block";
   introContainer.style.display = "None";
   startButton.style.display = "None";
-};
+}; // Change background, falling object and words array for each level
+// Increase the speed of falling objects for each level
+
 
 var getLevelSettings = function getLevelSettings() {
   switch (level) {
@@ -128,4 +130,25 @@ var getLevelSettings = function getLevelSettings() {
   }
 
   objectsContainer.style.bottom = '600px';
+}; // Select a random word then remove it from the array
+// When the array is empty move to the next level
+
+
+var getTargetWord = function getTargetWord() {
+  targetWord = wordsInPlay[Math.floor(Math.random() * wordsInPlay.length)];
+  targetContainer.innerHTML = targetWord;
+
+  if (wordsInPlay.length == 0) {
+    objectsContainer.innerHTML = "";
+    level += 1;
+
+    if (level < 5) {
+      getLevelSettings();
+      getTargetWord();
+      checkInput();
+    } else {
+      inPlay = false;
+      gameOver();
+    }
+  }
 };

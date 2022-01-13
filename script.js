@@ -48,7 +48,7 @@ inputContainer.addEventListener("input", (event) => {
 })
 
 //CLASSES
-// create different types of falling objects
+// Create different types of falling objects
 
 class FallingObject {
     constructor(imgHTML) {
@@ -99,6 +99,8 @@ const startGame = () => {
   startButton.style.display = "None";
 }
 
+// Change background, falling object and words array for each level
+// Increase the speed of falling objects for each level
 const getLevelSettings = () => {
   switch (level) {
       case 1:
@@ -129,4 +131,23 @@ const getLevelSettings = () => {
           wordsInPlay = winterWords.map((word) => word);
   }
   objectsContainer.style.bottom = '600px';
+}
+
+// Select a random word then remove it from the array
+// When the array is empty move to the next level
+const getTargetWord = () => {
+  targetWord = wordsInPlay[Math.floor(Math.random() * wordsInPlay.length)];
+  targetContainer.innerHTML = targetWord;
+  if (wordsInPlay.length == 0) {
+      objectsContainer.innerHTML = "";
+      level += 1;
+      if (level < 5) {
+          getLevelSettings();
+          getTargetWord();
+          checkInput();  
+      } else {
+          inPlay = false;
+          gameOver();
+      }
+  }
 }
