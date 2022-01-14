@@ -1,0 +1,50 @@
+i {
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.words {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.objects-container {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 150px;
+    display: grid;
+    grid-template-areas:
+        "o o o o o o o o o o o o o o o o o o o o"
+        "o o o o o o o o o o o o o o o o o o o o"
+        "o o o o o o o o o o o o o o o o o o o o"
+        "o o o o o o o o o o o o o o o o o o o o"
+        "o o o o o o o o o o o o o o o o o o o o";
+}
+
+.start {
+    margin: 10px;
+    border-radius: 10px;
+    background-color: palevioletred;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    height: 50px;
+    width: 200px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.target-container, .input-container {
+    margin: 10px;
+    position: relative;
+    display: None;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.target-container {
+    font-weight: bold;
+    font-size: 32px;
+}

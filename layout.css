@@ -1,0 +1,34 @@
+body {
+  background-size: cover;
+  background-image: url("images/spring.jpg");
+  height: 100vh;
+  width: auto;
+}
+
+.spring {
+  background-image: url("images/spring.jpg");
+}
+
+.summer {
+  background-image: url("images/summer.png");
+}
+
+.autumn {
+  background-image: url("images/autumn.jpg");
+}
+
+.winter {
+  background-image: url("images/winter.png");
+}
+
+.main {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer {
+  height: 40vh;
+}
