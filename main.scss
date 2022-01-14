@@ -70,3 +70,29 @@ i {
     font-size: 24px;
     font-weight: bold;
 }
+
+.target-container, .input-container {
+    margin: 10px;
+    position: relative;
+    display: None;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.target-container {
+    font-weight: bold;
+    font-size: 32px;
+}
+
+
+.main {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.footer {
+    height: 40vh;
+}
