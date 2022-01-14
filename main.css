@@ -29,6 +29,16 @@ i {
   grid-template-areas: "o o o o o o o o o o o o o o o o o o o o" "o o o o o o o o o o o o o o o o o o o o" "o o o o o o o o o o o o o o o o o o o o" "o o o o o o o o o o o o o o o o o o o o" "o o o o o o o o o o o o o o o o o o o o";
 }
 
+.intro {
+  color: hotpink;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .start {
   margin: 10px;
   border-radius: 10px;
@@ -86,4 +96,18 @@ body {
 
 .footer {
   height: 40vh;
+}
+
+@media screen and (min-width: 768px) {
+  .intro {
+    font-size: 32px;
+  }
+
+  .target-container {
+    font-size: 46px;
+  }
+
+  .input-container {
+    font-size: 24px;
+  }
 }

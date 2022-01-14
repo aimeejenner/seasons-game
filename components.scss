@@ -25,6 +25,16 @@ i {
         "o o o o o o o o o o o o o o o o o o o o";
 }
 
+.intro {
+    color: hotpink;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    font-family: $font-body;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .start {
     margin: 10px;
     border-radius: 10px;
