@@ -25,7 +25,8 @@ targetContainer.innerHTML = targetWord;
 var inputContainer = document.querySelector(".input-container");
 inputContainer.value = input;
 var startButton = document.querySelector(".start");
-var objectsContainer = document.querySelector(".objects-container"); // EVENT LISTENERS
+var objectsContainer = document.querySelector(".objects-container");
+var form = document.querySelector(".words"); // EVENT LISTENERS
 
 startButton.addEventListener("click", function (event) {
   event.preventDefault();
@@ -41,6 +42,9 @@ inputContainer.addEventListener("input", function (event) {
   if (inPlay == true) {
     checkInput();
   }
+});
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
 }); //CLASSES
 // Create different types of falling objects
 

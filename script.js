@@ -25,6 +25,8 @@ inputContainer.value = input;
 const startButton = document.querySelector(".start");
 const objectsContainer = document.querySelector(".objects-container");
 
+const form = document.querySelector(".words");
+
 
 // EVENT LISTENERS
 
@@ -45,6 +47,10 @@ inputContainer.addEventListener("input", (event) => {
     if (inPlay == true) {
         checkInput();
     }
+})
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
 })
 
 //CLASSES
