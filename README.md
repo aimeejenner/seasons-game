@@ -15,7 +15,7 @@ This game challenges the player to type in given words before falling objects hi
 
 ## User Story
 
--   **As a player I would like to be given words to type against the clock, so that I can improve my typing speed**
+-   **As a player I would like to be given words to type against the clock, so that I can improve my typing speed and accuracy**
 -   Given that I click on the Start button, I should be given a word to enter.
 -   Given that I type the correct word into the answer box, the falling objects should move up the page and I should be given a new word to enter.
 -   Given that I enter all words correctly for a certain level within the given time, I should progress to the next level.
@@ -128,11 +128,11 @@ const checkInput = () => {
   }
 }
 ```
-The moveObjects function moves the objects down the page by coverting the object container bottom position to a number and decrementing by 1. This funtion is repeated every 30ms so the objects appear to be falling. If the player inputs the correct word, the objects are moved 50px up.
+The moveObjects function moves the objects down the page by coverting the object container bottom position to a number and decrementing by 1. This function is repeated every 30ms so the objects appear to be falling. If the player inputs the correct word, the object container bottom position is incremented by 50.
 
 ```js
 /*
-The moveObjects function converts the object container bottom position to a number and decrements by 1.
+The moveObjects function converts the object container bottom position to a number and decrements by 1. If the correct word is inputted, the objects are moved 50px up.
 */
 const moveObjects = () => {
   let bottom = objectsContainer.style.bottom.replace("px", "");
